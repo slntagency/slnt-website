@@ -606,6 +606,33 @@ button{font:inherit}
   .manifest .w{color:#111!important}
   .intro{display:none!important}
 }
+
+/* ---------- Pakketten ---------- */
+.pakketten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:stretch}
+.pakket{position:relative;display:flex;flex-direction:column;padding:44px 36px 36px;border:1px solid var(--lijn-d);border-radius:2px;background:var(--zwart-3);transition:border-color .3s}
+@media (hover:hover){.pakket:hover{border-color:rgba(255,255,255,.35)}}
+.pk-nr{font-family:"Montserrat",sans-serif;font-weight:700;font-size:12px;letter-spacing:.34em;color:var(--grijs)}
+.pakket h3{margin:16px 0 10px;font-family:"Montserrat",sans-serif;font-weight:800;font-size:clamp(26px,2.4vw,34px);letter-spacing:-.01em;text-transform:uppercase;line-height:1.05}
+.pk-zin{color:var(--zacht-d);font-size:15.5px;min-height:3.3em}
+.pk-prijs{display:flex;align-items:baseline;gap:10px;margin-top:28px;padding-top:24px;border-top:1px solid var(--lijn-d)}
+.pk-prijs b{font-family:"Montserrat",sans-serif;font-weight:800;font-size:clamp(40px,4vw,54px);letter-spacing:-.02em;line-height:1}
+.pk-prijs span{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--grijs)}
+.pk-maand{margin-top:10px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:15px;color:var(--g1)}
+.pakket ul{list-style:none;display:grid;gap:12px;margin:28px 0 34px}
+.pakket li{display:flex;gap:14px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.86)}
+.pakket li::before{content:"";flex:none;width:8px;height:8px;margin-top:7px;background:var(--g2)}
+.pakket li b{font-weight:700;color:var(--wit)}
+.pakket .knop{margin-top:auto;width:100%}
+.pakket.uitgelicht{background:var(--wit);color:#111;border-color:var(--wit);box-shadow:0 40px 90px -40px rgba(255,255,255,.25)}
+.uitgelicht .pk-zin{color:var(--zacht-l)}
+.uitgelicht .pk-prijs{border-top-color:var(--lijn-l)}
+.uitgelicht .pk-maand{color:#111}
+.uitgelicht li{color:#1c1c1c}.uitgelicht li b{color:#000}
+.uitgelicht li::before{background:#111}
+.pk-tag{position:absolute;top:-1px;right:28px;padding:8px 14px;background:var(--zwart);color:var(--wit);font-family:"Montserrat",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase}
+.pk-noot{max-width:720px;margin:40px auto 0;text-align:center;color:var(--zacht-d);font-size:14px}
+@media (max-width:980px){.pakketten{grid-template-columns:minmax(0,1fr);max-width:560px;margin:0 auto}.pk-zin{min-height:0}}
+@media (max-width:680px){.pakket{padding:38px 24px 28px}}
 </style>
 </head>
 <body>
@@ -619,6 +646,7 @@ button{font:inherit}
         <li><a href="#deep-dive">Deep dive</a></li>
         <li><a href="#werkwijze">Werkwijze</a></li>
         <li><a href="#diensten">Diensten</a></li>
+        <li><a href="#prijzen">Prijzen</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
@@ -631,6 +659,7 @@ button{font:inherit}
       <li><a href="#deep-dive">Deep dive</a></li>
       <li><a href="#werkwijze">Werkwijze</a></li>
       <li><a href="#diensten">Diensten</a></li>
+      <li><a href="#prijzen">Prijzen</a></li>
       <li><a href="#over">Over</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -1077,7 +1106,7 @@ button{font:inherit}
     <ul class="diensten onthul">
       <li class="dienst open">
         <button type="button" aria-expanded="true"><span class="d-nr">01</span><span class="d-naam">Webdesign</span><span class="d-plus" aria-hidden="true"></span></button>
-        <div class="d-inhoud"><div><p>Een site op maat, vanuit 25 jaar grafisch vak. Geen template, wel een ontwerp waarin elke sectie een taak heeft.</p><ul><li>Ontwerp op maat</li><li>Mobiel perfect</li><li>Snel en vindbaar</li><li>Hosting en domein</li></ul></div></div>
+        <div class="d-inhoud"><div><p>Een site op maat, vanuit 25 jaar grafisch vak. Geen template, wel een ontwerp waarin elke sectie een taak heeft.</p><ul><li>Ontwerp op maat</li><li>Mobiel perfect</li><li>Snel en vindbaar</li><li>Domein en hosting op jouw naam</li></ul></div></div>
       </li>
       <li class="dienst">
         <button type="button" aria-expanded="false"><span class="d-nr">02</span><span class="d-naam">Landingspagina's</span><span class="d-plus" aria-hidden="true"></span></button>
@@ -1100,6 +1129,65 @@ button{font:inherit}
         <div class="d-inhoud"><div><p>Zodat je weet wat elke euro oplevert. Goed ingericht vanaf dag één.</p><ul><li>Meta en Google gekoppeld</li><li>Conversies meten</li><li>Heldere rapportage</li></ul></div></div>
       </li>
     </ul>
+  </div>
+</section>
+
+<!-- PAKKETTEN: kaarten staan stil (geen swipe, geen reveal op kaarten, geen hover-lift) -->
+<section class="sectie" id="prijzen">
+  <div class="binnen">
+    <div class="kop midden onthul">
+      <div class="label">Pakketten</div>
+      <h2 class="titel">Eén vaste prijs. <span class="grijs">Geen verrassingen.</span></h2>
+      <p class="lead">Elke site begint met een deep dive en wordt op maat gebouwd. Je betaalt één keer, en het onderhoud is altijd €49 per maand.</p>
+    </div>
+    <div class="pakketten">
+      <article class="pakket">
+        <span class="pk-nr">01</span>
+        <h3>Website</h3>
+        <p class="pk-zin">Een complete site die klanten oplevert.</p>
+        <div class="pk-prijs"><b>€1.495</b><span>eenmalig</span></div>
+        <div class="pk-maand">Onderhoud €49 per maand</div>
+        <ul>
+          <li>Deep dive in je bedrijf, je klant en je concurrenten</li>
+          <li>Ontwerp op maat, perfect op mobiel</li>
+          <li>Teksten in de woorden van je klant</li>
+          <li>Offerteformulier en WhatsApp-knop</li>
+          <li>Je echte reviews en projectfoto's in beeld</li>
+        </ul>
+        <a class="knop rand" href="#contact">Kies Website <span class="pijltje">→</span></a>
+      </article>
+      <article class="pakket uitgelicht">
+        <span class="pk-tag">Aanrader</span>
+        <span class="pk-nr">02</span>
+        <h3>Vindbaar</h3>
+        <p class="pk-zin">Je site, gebouwd om gevonden te worden in jouw regio.</p>
+        <div class="pk-prijs"><b>€1.745</b><span>eenmalig</span></div>
+        <div class="pk-maand">Onderhoud €49 per maand</div>
+        <ul>
+          <li><b>Alles uit Website</b></li>
+          <li>SEO-optimalisatie voor jouw diensten en jouw plaats</li>
+          <li>Zoekwoorden waarop je klanten echt zoeken</li>
+          <li>Techniek en snelheid op orde voor Google</li>
+          <li>Aangemeld en gekoppeld bij Google</li>
+        </ul>
+        <a class="knop zwart" href="#contact">Kies Vindbaar <span class="pijltje">→</span></a>
+      </article>
+      <article class="pakket">
+        <span class="pk-nr">03</span>
+        <h3>Groei</h3>
+        <p class="pk-zin">Vindbaar, plus een reputatie die vanzelf groeit.</p>
+        <div class="pk-prijs"><b>€2.495</b><span>eenmalig</span></div>
+        <div class="pk-maand">Onderhoud €49 per maand</div>
+        <ul>
+          <li><b>Alles uit Vindbaar</b></li>
+          <li>Reviewautomaat: na elke klus gaat er vanzelf een WhatsApp met je reviewlink</li>
+          <li>Je Google-bedrijfsprofiel compleet ingericht</li>
+          <li>Voor elke nieuwe review staat een reactie klaar in jouw toon</li>
+        </ul>
+        <a class="knop rand" href="#contact">Kies Groei <span class="pijltje">→</span></a>
+      </article>
+    </div>
+    <p class="pk-noot">Alle prijzen exclusief btw. Domein en hosting staan op jouw naam en betaal je rechtstreeks, zo blijft alles van jou. Onderhoud: wijzigingen via WhatsApp tot 30 minuten per maand en elk kwartaal nieuwe foto's en reviews erop. Minimaal 12 maanden, daarna per maand opzegbaar.</p>
   </div>
 </section>
 
@@ -1130,7 +1218,7 @@ button{font:inherit}
       <details class="onthul"><summary>Wat is de deep dive precies?</summary><p>Een onderzoek naar je bedrijf, je klant, je reviews, je concurrenten en je cijfers. Daaruit volgt het plan: wat er op je site en in je ads komt, en in welke volgorde. Je krijgt het dossier mee.</p></details>
       <details class="onthul"><summary>Bouwen jullie ook webshops?</summary><p>Nee. Wij bouwen websites en landingspagina's die klanten opleveren. Onze ervaring met webshops gebruiken we om die pagina's te laten verkopen.</p></details>
       <details class="onthul"><summary>Doen jullie ook advertenties?</summary><p>Ja. We hebben zelf €3 miljoen uitgegeven op Meta en Google. Wil je campagnes achter je site, dan richten we die in en sturen we bij.</p></details>
-      <details class="onthul"><summary>Wat kost het?</summary><p>Elk project is maatwerk. Na je bericht krijg je een vaste prijs, zonder verrassingen achteraf.</p></details>
+      <details class="onthul"><summary>Wat kost het?</summary><p>Een website kost €1.495 eenmalig. Met SEO is dat €1.745, en met SEO en een reviewautomaat €2.495. Onderhoud is altijd €49 per maand. Zie <a href="#prijzen">de pakketten</a>. Alles exclusief btw, met een vaste prijs vooraf.</p></details>
       <details class="onthul"><summary>Ik heb al een website. Kan die over?</summary><p>Ja. We bouwen de nieuwe site en zetten hem pas live als alles klaar is. Je domein verhuist mee, je bent nergens offline.</p></details>
       <details class="onthul"><summary>Wat beloven jullie?</summary><p>Alleen wat we waar kunnen maken. Geen garanties op omzet, wel een eerlijk plan en het werk dat erbij hoort.</p></details>
     </div>
