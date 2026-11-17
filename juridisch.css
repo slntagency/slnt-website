@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap');
+:root{--zwart:#0a0a0a;--wit:#fff;--grijs:#6b6b6b;--lijn:#e4e4e4;--zacht:#f5f5f4}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--wit);color:var(--zwart);font:16px/1.65 "Montserrat",Arial,sans-serif}
+a{color:inherit;text-underline-offset:3px}
+.kop{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px max(16px,calc((100% - 820px)/2));border-bottom:1px solid var(--lijn);position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(6px)}
+.merk{font-weight:900;font-size:22px;letter-spacing:.08em;text-decoration:none}
+.terug{font-size:14px;font-weight:600}
+main{max-width:820px;margin:0 auto;padding:56px 16px 72px}
+.label{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--grijs);margin:0 0 10px}
+h1{font-weight:900;font-size:clamp(32px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 8px}
+.stand{color:var(--grijs);font-size:14px;margin:0 0 40px}
+h2{font-weight:800;font-size:20px;margin:40px 0 10px;letter-spacing:-.01em}
+h3{font-weight:700;font-size:16px;margin:24px 0 6px}
+p,li{color:#222}
+ul,ol{padding-left:22px}
+li{margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0;display:block;overflow-x:auto}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--lijn);min-width:140px}
+th{background:var(--zacht);font-weight:700}
+.voet{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:24px max(16px,calc((100% - 820px)/2));background:var(--zwart);color:#bdbdbd;font-size:12px;letter-spacing:.04em}
+.voet a{color:#fff}
+.sub{padding-left:22px;margin:4px 0}
